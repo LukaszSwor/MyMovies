@@ -1,0 +1,45 @@
+# Pliki binarne
+bin/
+obj/
+
+# Pliki baz danych
+*.mdf
+*.ldf
+
+# Bytecode ASP.NET
+*.aspx.cs
+*.aspx.designer.cs
+*.ascx.cs
+*.ascx.designer.cs
+
+# Pliki konfiguracyjne
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Pliki Visual Studio
+.vs/
+
+# Pliki pakietów NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Różne pliki systemowe operacyjnego
+.DS_Store
+Thumbs.db
+
+# Pliki certyfikatów
+*.pfx
+*.cer
+*.crt
+*.key
+*.pem
+
+# Pliki tymczasowe
+*.tmp
+*.temp
+*.tbd
+
