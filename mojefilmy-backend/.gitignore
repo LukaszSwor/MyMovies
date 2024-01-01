@@ -13,7 +13,6 @@ obj/
 *.ascx.designer.cs
 
 # Pliki konfiguracyjne
-appsettings.json
 appsettings.Development.json
 appsettings.Production.json
 
