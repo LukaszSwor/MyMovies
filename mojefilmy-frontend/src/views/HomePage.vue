@@ -185,14 +185,25 @@ export default {
     this.isEditMovieModalVisible = true; // Otwieranie okna modalnego do edycji
   },
     deleteMovie(id) {
-      axiosApi.delete(`/movies/${id}`)
-        .then(() => {
-          this.movies = this.movies.filter(m => m.id !== id);
-        })
-        .catch(error => {
-          console.error('Error deleting movie:', error);
-        });
-    },
+  // Najpierw znajdź tytuł filmu na podstawie id
+  const movie = this.movies.find(m => m.id === id);
+  if (!movie) {
+    alert('Film nie został znaleziony.');
+    return;
+  }
+
+  // Następnie użyj tego tytułu w oknie dialogowym potwierdzenia
+  if (confirm(`Czy na pewno chcesz usunąć film "${movie.title}"?`)) {
+    axiosApi.delete(`/movies/${id}`)
+      .then(() => {
+        this.movies = this.movies.filter(m => m.id !== id);
+      })
+      .catch(error => {
+        console.error('Error deleting movie:', error);
+      });
+  }
+},
+
     sortMovies(key) {
     if (key === 'title') {
       // Sortowanie tytułów z uwzględnieniem wielkości liter i lokalnych znaków
