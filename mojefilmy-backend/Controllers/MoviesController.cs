@@ -26,6 +26,13 @@ namespace mojefilmy_backend.Controllers
             return await _context.Movies.ToListAsync();
         }
 
+        // GET: api/movies/checkIfExists
+        [HttpGet("checkIfExists")]
+        public async Task<ActionResult<bool>> CheckIfMovieExists([FromQuery] string title, [FromQuery] string director)
+        {
+            return await _context.Movies.AnyAsync(m => m.Title == title && m.Director == director);
+        }
+
         // GET: api/movies/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)

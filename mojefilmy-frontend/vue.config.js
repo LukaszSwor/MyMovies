@@ -1,10 +1,12 @@
+// vue.config.js
 module.exports = {
   devServer: {
     proxy: {
-      '/MyMovies': {
+      '^/MyMovies': {
         target: 'https://filmy.programdemo.pl',
         changeOrigin: true,
-        pathRewrite: { '^/MyMovies': '/MyMovies' },
+        logLevel: 'debug', // Dodaj to dla lepszego debugowania
+        ws: true,
       },
     },
   },

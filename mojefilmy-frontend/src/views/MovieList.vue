@@ -26,6 +26,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'MovieList',
   props: {
@@ -40,7 +42,9 @@ export default {
       // Emituje zdarzenie 'delete-movie' z id filmu do rodzica
       this.$emit('delete-movie', id);
     }
+
   }
+
 };
 </script>
 

@@ -59,8 +59,8 @@ namespace mojefilmy_backend
                 c.RoutePrefix = string.Empty; // Ustawia Swagger UI na ścieżce głównej aplikacji
             });
 
-            app.UseRouting();
             app.UseCors(); // Użyj CORS przed UseRouting
+            app.UseRouting();
 
             app.UseAuthorization();
 
