@@ -1,4 +1,3 @@
-<!-- MovieList.vue -->
 <template>
   <div class="movie-list">
     <table class="table">
@@ -26,8 +25,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'MovieList',
   props: {
@@ -35,19 +32,11 @@ export default {
   },
   methods: {
     editMovie(movie) {
-      // Emituje zdarzenie 'edit-movie' z danymi filmu do rodzica
       this.$emit('edit-movie', movie);
     },
     deleteMovie(id) {
-      // Emituje zdarzenie 'delete-movie' z id filmu do rodzica
       this.$emit('delete-movie', id);
     }
-
   }
-
 };
 </script>
-
-<style>
-/* Styl dla MovieList, jeśli jest potrzebny */
-</style>

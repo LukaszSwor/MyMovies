@@ -4,10 +4,9 @@ import HomePage from '../views/HomePage.vue';
 const routes = [
   {
     path: '/',
-    name: 'HomePage', // Tutaj też powinno być 'HomePage' zamiast 'Home'
-    component: HomePage // i tutaj odwołanie do importowanego komponentu HomePage
+    name: 'HomePage', 
+    component: HomePage 
   },
-  // Definicje innych ścieżek...
 ];
 
 const router = createRouter({

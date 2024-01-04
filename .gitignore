@@ -1,54 +1,84 @@
-# Pliki konfiguracyjne IDE i systemu
-**/.vs
-**/.vscode
-**/*.user
-**/*.suo
-*.sublime-workspace
-*.sublime-project
-*.idea
+# Pliki konfiguracyjne IDE i edytorów
+.vs/
+.vscode/
 *.swp
 *.swo
-*.DS_Store
-*.db
-Thumbs.db
+*~
 
 # Katalogi zależności
-**/node_modules/
+node_modules/
+obj/
+bin/
+
+# Pliki kompilacji i wyjściowe
+*/bin/
+*/obj/
+*.user
+*.suo
+*.userprefs
+*.unityproj
+*.booproj
+*.pidb
+*.sln.docstates
+
+# Katalogi i pliki specyficzne dla platformy .NET
+**/[Pp]roperties/launchSettings.json
 **/wwwroot/
+**/[Aa]ppsettings.json
+**/[Aa]ppsettings.*.json
+*.csproj
+*.csproj.user
 
-# Katalogi kompilacji i wyjścia
-**/bin/
-**/obj/
-**/out/
-**/Properties/launchSettings.json
-**/appsettings.Development.json
-dist/
+# Migracje Entity Framework
+**/Migrations/
+
+# Pliki wyjściowe publikacji
+**/publish/
+
+# Pliki wyjściowe publikacji
+**/publish/
+
+# Pliki cache
+**/wwwroot/dist/
+**/[Oo]bj/
+**/[Bb]in/
+*.user
+*.cache
+*.csproj.user
+
+# Pliki i katalogi dotyczące testów
+*.trx
+*.log
+TestResults/
+
+# Pliki wyjściowe budowania i debugowania
 build/
+debug/
+release/
 
-# Logi
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
+# Pliki specyficzne dla aplikacji Vue.js
+/dist/
+/public/
 
-# Pliki środowiska runtime
+# Pliki środowiskowe
 .env
 .env.local
 .env.*.local
 
-# Pliki cache i innych narzędzi
-**/.sass-cache/
-**/.cache/
-**/.m2/
-**/bower_components/
+# Pliki i foldery ignorowane przez Vue CLI
+.DS_Store
+.idea
+/.vs/
+/.idea/
+/.history/
 
-# Katalogi specyficzne dla projektów
-**/Migrations/
-/publish/
+# Pliki i foldery ignorowane przez Vue CLI
+.DS_Store
+.idea
+/.vs/
+/.idea/
+/.history/
 
-# Pliki i katalogi ignorowane specyficznie dla projektu
-# Tutaj możesz dodać reguły dla plików, które są generowane
-# w trakcie pracy nad projektem i nie powinny być w repozytorium
-# Przykłady:
-# /secrets.json
-# /mojefilmy-backend/appsettings.json
+# Pliki lokalne z konfiguracją
+/local.settings.json
 

@@ -26,8 +26,6 @@ namespace mojefilmy_backend
                 new MySqlServerVersion(new Version(8, 0, 21))));
 
             services.AddControllers();
-
-            // Konfiguracja Swaggera
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MojeFilmy API", Version = "v1" });
@@ -38,7 +36,7 @@ namespace mojefilmy_backend
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:8080") // Adres frontendu
+                        builder.WithOrigins("http://localhost:8080")
                                .AllowAnyHeader()
                                .AllowAnyMethod();
                     });
@@ -56,12 +54,11 @@ namespace mojefilmy_backend
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "MojeFilmy API V1");
-                c.RoutePrefix = string.Empty; // Ustawia Swagger UI na ścieżce głównej aplikacji
+                c.RoutePrefix = string.Empty;
             });
 
-            app.UseCors(); // Użyj CORS przed UseRouting
+            app.UseCors();
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -2,35 +2,34 @@
   <div class="modal-overlay" v-if="isVisible" @click.self="closeModal">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <!-- Dynamiczny tytuł dla różnych przypadków użycia modalu -->
-          <h5 class="modal-title">
-            <slot name="header">Dodaj filmy</slot>
-          </h5>
-          <button type="button" class="btn-close" @click="closeModal"></button>
-        </div>
+
         <div class="modal-body">
-          <!-- Slot na treść główną modalu -->
           <slot>
             <ul>
-              <li v-for="movie in movies" :key="movie.id" class="modal-movie-item">
-  <span @click="addMovie(movie)" style="cursor: pointer;">
-    {{ movie.title }} ({{ movie.year }}) - Reżyseria: {{ movie.director }}
-  </span>
-</li>
+              <li 
+                v-for="movie in movies" 
+                :key="movie.id" 
+                class="modal-movie-item" 
+                @click="addMovie(movie)" 
+                style="cursor: pointer;"
+              >
+                {{ movie.title }} ({{ movie.year }}) - Reżyseria: {{ movie.director }}
+              </li>
             </ul>
           </slot>
         </div>
+
         <div class="modal-footer">
-          <!-- Slot na stopkę modalu -->
           <slot name="footer">
-            <button type="button" class="btn btn-secondary" @click="closeModal">Zamknij</button>
+          <button type="button" class="btn btn-secondary" @click="closeModal">Zamknij</button>
           </slot>
         </div>
+
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -38,6 +37,10 @@ export default {
     movies: {
       type: Array,
       default: () => []
+    },
+    validationError: {
+      type: String,
+      default: ''
     },
     isVisible: {
       type: Boolean,
@@ -49,7 +52,6 @@ export default {
       this.$emit('close');
     },
     addMovie(movie) {
-      // Emitowanie zdarzenia z wybranym filmem do dodania
       this.$emit('add-movie', movie);
     }
   }
@@ -77,7 +79,7 @@ export default {
 
 .modal-movie-item {
   margin-bottom: 10px;
-    justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
 }
 </style>

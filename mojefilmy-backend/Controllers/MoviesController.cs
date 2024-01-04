@@ -19,21 +19,18 @@ namespace mojefilmy_backend.Controllers
             _context = context;
         }
 
-        // GET: api/movies
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
         {
             return await _context.Movies.ToListAsync();
         }
 
-        // GET: api/movies/checkIfExists
         [HttpGet("checkIfExists")]
         public async Task<ActionResult<bool>> CheckIfMovieExists([FromQuery] string title, [FromQuery] string director)
         {
             return await _context.Movies.AnyAsync(m => m.Title == title && m.Director == director);
         }
 
-        // GET: api/movies/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
@@ -45,7 +42,6 @@ namespace mojefilmy_backend.Controllers
             return movie;
         }
 
-        // POST: api/movies
         [HttpPost]
         public async Task<ActionResult<Movie>> PostMovie(Movie movie)
         {
@@ -55,7 +51,6 @@ namespace mojefilmy_backend.Controllers
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
         }
 
-        // PUT: api/movies/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMovie(int id, Movie movie)
         {
@@ -85,7 +80,6 @@ namespace mojefilmy_backend.Controllers
             return NoContent();
         }
 
-        // DELETE: api/movies/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
