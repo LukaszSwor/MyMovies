@@ -1,66 +1,108 @@
-# Nazwa Aplikacji Filmowej
+# MyMovies Application
 
-Krótki opis Twojej aplikacji - co to jest i co robi.
+This is a full-stack web application for managing a personal movie library.
 
-## Funkcje
+## Prerequisites
 
-- Dodawanie filmów do biblioteki
-- Usuwanie filmów z biblioteki
-- Edycja szczegółów filmów
-- Sortowanie filmów według tytułu i roku
-- Importowanie filmów z zewnętrznego API
+Before running the application, make sure you have the following environments and tools installed:
 
-## Wymagania Wstępne
+- [Node.js](https://nodejs.org/) (version 21.5.0) - JavaScript runtime environment.
+- [Vue CLI](https://cli.vuejs.org/) (version 5.0.8) - Standard Tooling for Vue.js Development.
+- [.NET 6 SDK](https://dotnet.microsoft.com/download) (version 6.0.417) - Software development kit for building with .NET 6.
+- [ASP.NET Core Runtime](https://dotnet.microsoft.com/download) (version 6.0.25) - Runtime for building and running ASP.NET Core applications.
 
-Upewnij się, że masz zainstalowane następujące narzędzia:
-- Node.js (wymagana wersja XYZ lub nowsza)
-- Menadżer pakietów npm lub yarn
+## Getting Started
 
-## Instalacja
+To get the application running, follow these steps:
 
-Instrukcje krok po kroku, jak uruchomić projekt:
+1. Clone the repository to your local machine.
 
-1. Sklonuj repozytorium:
-git clone https://github.com/twoje-repozytorium/nazwa-aplikacji.git
+```sh
+git clone https://github.com/yourusername/your-repo-name.git
+```
 
+2. Navigate to the front-end directory within the cloned repository.
 
-2. Przejdź do folderu projektu:
-cd nazwa-aplikacji
+```sh
+cd mojefilmy-frontend
+```
 
+3. Install the required Node.js dependencies.
 
-3. Zainstaluj zależności:
+```sh
 npm install
+```
 
+4. Start the front-end development server.
 
-lub jeśli używasz `yarn`:
-yarn install
-
-
-## Uruchomienie aplikacji
-
-Uruchom serwer deweloperski:
+```sh
 npm run serve
+```
 
-lub jeśli używasz `yarn`:
-yarn serve
+5. In a separate terminal, navigate to the back-end directory.
 
+```sh
+cd ../mojefilmy-backend
+```
 
-Aplikacja będzie dostępna pod adresem `http://localhost:8080`.
+6. Restore the .NET dependencies.
 
-## Budowanie dla produkcji
+```sh
+dotnet restore
+```
 
-Aby zbudować aplikację dla środowiska produkcyjnego:
-npm run build
+7. Start the back-end development server.
 
-lub używając `yarn`:
-yarn build
+```sh
+dotnet run
+```
 
+The front-end will be accessible at `http://localhost:8080`, and the back-end will be available at `http://localhost:5000` or the port specified in the launch settings.
 
+## Database Setup
 
-## Licencja
+This application uses MySQL for the database and Entity Framework Core for ORM with migrations. To set up the database:
 
-Podaj informacje o licencji, jeśli jest to wymagane.
+1. Ensure you have MySQL installed and running on your machine.
 
-## Kontakt
+2. Update the `DefaultConnection` string in the `appsettings.json` file within the `mojefilmy-backend` project to match your MySQL server's credentials:
 
-Twoje dane kontaktowe lub inne sposoby komunikacji z użytkownikami i deweloperami zainteresowanymi Twoim projektem.
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "server=your_server;port=your_port;database=your_database;user=your_username;password=your_password;"
+}
+```
+
+Please make sure to secure your database in a production environment and not to use default credentials.
+
+3. Apply Entity Framework migrations to create the database schema:
+
+```sh
+cd mojefilmy-backend
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+If you do not have Entity Framework CLI tools installed, you can install them using the following command:
+
+```sh
+dotnet tool install --global dotnet-ef
+```
+
+If you encounter any issues with migrations, make sure that the Entity Framework provider for MySQL is installed and properly configured in your project.
+
+## Application Overview
+
+The application allows users to perform the following operations:
+
+- **Add a new movie**: Enter details such as the title, director, and year.
+- **Edit an existing movie**: Update the details of movies in the collection.
+- **Delete a movie**: Remove a movie from the collection.
+- **List all movies**: Display all movies in the collection.
+
+These operations are supported by a RESTful API backend built with ASP.NET Core and a frontend built with Vue.js.
+
+---
+
+For more information or if you encounter any issues, please open an issue on the GitHub repository.
+
