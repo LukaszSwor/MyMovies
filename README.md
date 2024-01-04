@@ -13,51 +13,11 @@ Before running the application, make sure you have the following environments an
 
 ## Getting Started
 
-To get the application running, follow these steps:
-
-1. Clone the repository to your local machine.
+To get the application running, start with clone the repository to your local machine by
 
 ```sh
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/LukaszSwor/MyMovies.git
 ```
-
-2. Navigate to the front-end directory within the cloned repository.
-
-```sh
-cd mojefilmy-frontend
-```
-
-3. Install the required Node.js dependencies.
-
-```sh
-npm install
-```
-
-4. Start the front-end development server.
-
-```sh
-npm run serve
-```
-
-5. In a separate terminal, navigate to the back-end directory.
-
-```sh
-cd ../mojefilmy-backend
-```
-
-6. Restore the .NET dependencies.
-
-```sh
-dotnet restore
-```
-
-7. Start the back-end development server.
-
-```sh
-dotnet run
-```
-
-The front-end will be accessible at `http://localhost:8080`, and the back-end will be available at `http://localhost:5000` or the port specified in the launch settings.
 
 ## Database Setup
 
@@ -90,6 +50,48 @@ dotnet tool install --global dotnet-ef
 ```
 
 If you encounter any issues with migrations, make sure that the Entity Framework provider for MySQL is installed and properly configured in your project.
+
+## Start with app
+
+
+1. Navigate to the front-end directory within the cloned repository.
+
+```sh
+cd MyMovies/mojefilmy-frontend
+```
+
+2. Install the required Node.js dependencies.
+
+```sh
+npm install
+```
+
+3. Start the front-end development server.
+
+```sh
+npm run serve
+```
+
+4. In a separate terminal, navigate to the back-end directory.
+
+```sh
+cd /MyMovies/mojefilmy-backend
+```
+
+5. Restore the .NET dependencies.
+
+```sh
+dotnet restore
+```
+
+7. Start the back-end development server.
+
+```sh
+dotnet run
+```
+
+The front-end will be accessible at `http://localhost:8080`, and the back-end will be available at `http://localhost:5000` or the port specified in the launch settings.
+
 
 ## Application Overview
 
